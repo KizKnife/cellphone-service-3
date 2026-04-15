@@ -24,7 +24,11 @@ public class CellPhone {
     }
 
     public void dial(String phoneNumber) {
-        System.out.printf("%s's phone is calling %s", owner, phoneNumber);
+        System.out.printf("%s's phone is calling %s%n", owner, phoneNumber);
+    }
+
+    public void dial(CellPhone phone) {
+        System.out.printf("%s's phone is calling %s%n", owner, phone.getPhoneNumber());
     }
 
     public int getSerialNumber() {

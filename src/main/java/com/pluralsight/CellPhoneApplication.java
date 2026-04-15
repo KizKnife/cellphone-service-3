@@ -23,9 +23,11 @@ public class CellPhoneApplication {
         // Getters
         display(cellPhone1);
         display(cellPhone2);
+        display(cellPhone3);
 
-        cellPhone1.dial(cellPhone2.getPhoneNumber());
-        cellPhone2.dial(cellPhone1.getPhoneNumber());
+        cellPhone1.dial(cellPhone2);
+        cellPhone2.dial(cellPhone1);
+        cellPhone1.dial(cellPhone3);
     }
 
     public static void buildPhoneNumber(Scanner scanner, CellPhone cellPhone) {
