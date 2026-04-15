@@ -9,9 +9,27 @@ public class CellPhoneApplication {
         // New CellPhone instance named 'cellPhone1' and 'cellPhone2'
         CellPhone cellPhone1 = new CellPhone();
         CellPhone cellPhone2 = new CellPhone();
+        CellPhone cellPhone3 = new CellPhone(
+                12345,
+                "PS Vita",
+                "AT&T",
+                "900-689-9051",
+                "Kiz"
+        );
 
-        // User input serial number, model, carrier, phone number, owner for phone 1
-        System.out.println("Phone 1");
+        buildPhoneNumber(scanner, cellPhone1);
+        buildPhoneNumber(scanner, cellPhone2);
+
+        // Getters
+        display(cellPhone1);
+        display(cellPhone2);
+
+        cellPhone1.dial(cellPhone2.getPhoneNumber());
+        cellPhone2.dial(cellPhone1.getPhoneNumber());
+    }
+
+    public static void buildPhoneNumber(Scanner scanner, CellPhone cellPhone) {
+        // User input serial number, model, carrier, phone number, owner
         System.out.print("What is the serial number? ");
         int serialNumber = scanner.nextInt();
         scanner.nextLine();
@@ -28,36 +46,11 @@ public class CellPhoneApplication {
         System.out.print("Who is the owner of the phone? ");
         String owner = scanner.nextLine();
 
-        // Setters for Phone 1
-        setPhone(cellPhone1, serialNumber, model, carrier, phoneNumber, owner);
+        // Setters for Phone
+        setPhone(cellPhone, serialNumber, model, carrier, phoneNumber, owner);
 
-        // User input serial number, model, carrier, phone number, owner for phone 2
-        System.out.println("Phone 2");
-        System.out.print("What is the serial number? ");
-        serialNumber = scanner.nextInt();
-        scanner.nextLine();
-
-        System.out.print("What model is the phone? ");
-        model = scanner.nextLine();
-
-        System.out.print("Who is the carrier? ");
-        carrier = scanner.nextLine();
-
-        System.out.print("What is the phone number? ");
-        phoneNumber = scanner.nextLine();
-
-        System.out.print("Who is the owner of the phone? ");
-        owner = scanner.nextLine();
-
-        // Setters for Phone 2
-        setPhone(cellPhone2, serialNumber, model, carrier, phoneNumber, owner);
-
-        // Getters
-        display(cellPhone1);
-        display(cellPhone2);
-
-        cellPhone1.dial(cellPhone2.getPhoneNumber());
-        cellPhone2.dial(cellPhone1.getPhoneNumber());
+        // Line break
+        System.out.println();
     }
 
     public static void setPhone(CellPhone cellPhone1, int serialNumber, String model, String carrier, String phoneNumber, String owner) {
