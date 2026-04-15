@@ -15,6 +15,10 @@ public class CellPhone {
         owner = "";
     }
 
+    public void dial(String phoneNumber) {
+        System.out.printf("%n%s's phone is calling %s", owner, phoneNumber);
+    }
+
     public int getSerialNumber() {
         return serialNumber;
     }
